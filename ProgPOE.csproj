@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>ab6676b5-f09b-41cf-8f92-a65a3e188497</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="greeting.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="greeting.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+    <PackageReference Include="System.Windows.Extensions" Version="9.0.4" />
+  </ItemGroup>
+
+</Project>
