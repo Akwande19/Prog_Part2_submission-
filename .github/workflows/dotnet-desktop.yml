@@ -1,0 +1,30 @@
+name: .NET Console Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'  # Adjust if you're using a different .NET version
+
+    - name: Restore dependencies
+      run: dotnet restore ProgPOE.sln
+
+    - name: Build the solution
+      run: dotnet build ProgPOE.sln --configuration Release --no-restore
+
+    - name: Run tests (if any)
+      run: echo "No unit tests project found, skipping test step."
